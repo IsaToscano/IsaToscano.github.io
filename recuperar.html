@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña - Red Social</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Recuperar Contraseña</h2>
+        <p class="text-center">Ingrese su correo electrónico y le enviaremos un enlace para restablecer su contraseña.</p>
+        <div class="card p-4 mx-auto" style="max-width: 400px;">
+            <form id="recoverForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar Enlace</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="login.html">Volver al Login</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#recoverForm").submit(function (e) {
+            e.preventDefault();
+            let email = $("#email").val().trim();
+
+            if (email === "") {
+                alert("Por favor, ingrese su correo electrónico.");
+                return;
+            }
+
+            if (!email.includes("@") || !email.includes(".")) {
+                alert("Ingrese un correo válido.");
+                return;
+            }
+
+            alert("Si el correo está registrado, recibirá un enlace de recuperación.");
+        });
+    </script>
+</body>
+</html>
